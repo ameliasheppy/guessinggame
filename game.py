@@ -14,8 +14,8 @@ def guessing_game():
     name = input("Howdy! What's your name?")
     print(f"{name}, I'm thinking of a number between 1 and 100 \n Try to guess my number!")
     guess = 'cats'
-
-    while guess != number:
+    max_count = 3
+    while guess != number and counter <= max_count:
         try:
             guess = int(input("Your guess? "))
         except ValueError:
@@ -30,7 +30,10 @@ def guessing_game():
             print('Sorry, you need to give a number from 1-100!')
         counter += 1
 
-    print(f"Well done! You found my number in {counter} tries :)")
+    if counter >= max_count:
+        print('OOPS! You exceeded the max number of attemped guesses, please start over.')
+    else:
+        print(f"Well done! You found my number in {counter} tries :)")
 
 
 guessing_game()
