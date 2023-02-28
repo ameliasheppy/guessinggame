@@ -3,8 +3,6 @@
 # Put your code here
 from random import randint
 
-print('hi!')
-
 #
 name = input("Howdy! What's your name?")
 print(f"{name}, I'm thinking of a number between 1 and 100 \n Try to guess my number!")
@@ -58,3 +56,23 @@ def play_multiple_rounds():
         wantCont = input("Do you want to play another round? Yes/no :")
     print(f"The best score was {min(scores)}. Bye! Thanks for playing!")
 
+#Bianca had the excellent idea to use a binary search method to use on the guesses by the computer
+def play_against_computer():
+    print("We'll guess your number!")
+    lowRange = int(input("What's the lowest the number could be? "))
+    highRange = int(input("what's the highest the number could be ?"))
+    feedback = 'n'
+    guess = ((highRange - lowRange) // 2) + lowRange
+    while feedback != 'correct':
+        if feedback == 'too high':
+            highRange = guess
+        elif feedback == 'too low':
+            lowRange = guess
+        else:
+            print("I don't understand")
+        guess = ((highRange - lowRange) // 2) + lowRange
+        print(f"My guess is {guess}")
+        feedback = input("Too high/ Too low/ correct ?: ").lower()
+    print("I got it!")
+
+play_against_computer()
