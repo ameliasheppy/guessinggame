@@ -3,10 +3,13 @@
 # Put your code here
 from random import randint
 
-#
-name = input("Howdy! What's your name?")
-print(f"{name}, I'm thinking of a number between 1 and 100 \n Try to guess my number!")
-print('Hi!')
+def choose_mode():
+    name = input("Howdy! What's your name?")
+    choice = input(f"A if you want to guess the computer's number, or B if you want the computer to guess yours: ").lower()
+    if choice == 'a':
+        play_multiple_rounds()
+    else:
+        play_against_computer()
 
 def guessing_game(min, max):
     # throwing in a print to see if it gives us a random number
@@ -75,4 +78,4 @@ def play_against_computer():
         feedback = input("Too high/ Too low/ correct ?: ").lower()
     print("I got it!")
 
-play_against_computer()
+choose_mode()
